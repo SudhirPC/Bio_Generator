@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+.navbar{
+  background-color:rgb(189,198,193);
+  text-align: center;
+  margin-top:-30px;
+  height:80px;
+  padding:auto;
+  padding-top:15px
+}
