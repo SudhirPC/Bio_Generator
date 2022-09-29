@@ -3,7 +3,7 @@ import React from "react";
 export const Navbar = () => {
   return (
     <div className="navbar">
-      <h1>Bio Generator</h1>
+      <h1>Bio sudhir</h1>
     </div>
   );
 };
