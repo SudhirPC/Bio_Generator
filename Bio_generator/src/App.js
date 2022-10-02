@@ -1,13 +1,12 @@
-import './App.css';
-import { Navbar } from './Components/Navbar.jsx';
-
+import "./App.css";
+import { Main } from "./Components/Main.jsx";
+import { Navbar } from "./Components/Navbar.jsx";
 
 function App() {
-
-
   return (
-    <div >
-     <Navbar/>
+    <div>
+      <Navbar />
+      <Main />
     </div>
   );
 }

@@ -4,8 +4,18 @@
 .navbar{
   background-color:rgb(189,198,193);
   text-align: center;
-  margin-top:-30px;
+  /* margin-top:-30px; */
   height:80px;
   padding:auto;
   padding-top:15px
+}
+.maindiv{
+  margin-top:15px
+}
+.optiondiv{
+  background-color:rgb(187,196,191);
+  align-items:center
+}
+.resultdiv{
+  background-color:rgb(187,196,191);
 }
