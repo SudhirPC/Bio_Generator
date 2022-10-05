@@ -1,21 +1,103 @@
 .App {
   text-align: center;
+  background-color:rgb(223,234,228);
+}
+body{
+  background-color:rgb(223,234,228);
 }
 .navbar{
   background-color:rgb(189,198,193);
   text-align: center;
-  /* margin-top:-30px; */
-  height:80px;
+   height:80px;
   padding:auto;
-  padding-top:15px
+  padding-top:15px;
+  margin-bottom: 25px;
 }
 .maindiv{
   margin-top:15px
 }
 .optiondiv{
-  background-color:rgb(187,196,191);
+  background-color:rgb(223,234,228);
   align-items:center
 }
 .resultdiv{
-  background-color:rgb(187,196,191);
+  background-color:rgb(223,234,228);
+} 
+
+.container{
+  display: flex;
+
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
 }
+.heading{
+ background-color:rgb(185,194,189);
+  padding: 15px;
+  margin: 0 auto 20px auto;
+}
+.option-div{
+  width: 55%;
+  padding: 10px;
+}
+
+.option-div-child{
+  display: flex;
+  font-size: 17px;
+  width: 100%;
+ background-color:rgb(185,194,189);
+  padding: 15px 0 15px 0;
+  margin-top: 15px;
+}
+.option-div-child>*{
+  margin-left: 10px;
+}
+.text-area-overflow{
+  overflow-y: scroll;
+  width: 97%; 
+  height: 80px; 
+  margin: 10px;
+  padding:0 20% 0 0;
+}
+.result-div{
+  width: 35%;
+  padding: 10px;
+}
+
+button{
+  border: 1px solid black;
+  padding:2px 5px;
+  border-radius:10px;
+  background-color:rgb(207,211,209)
+}
+
+@media only screen and (min-width: 0px) and (max-width: 420px) {
+  .App {
+    padding-bottom: 100px;
+  }
+  .container{
+  
+    display: block;
+    width: 100%;
+  }
+  .option-div{
+    width: 90%;
+    padding: 5px;
+    margin: auto;
+  }
+  .option-div-child{
+    display: flex;
+    font-size: 17px;
+    flex-wrap: wrap;
+  }
+  .option-div-child>*{
+    margin: 5px;
+  }
+
+
+  .result-div{
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+  }
+  }
