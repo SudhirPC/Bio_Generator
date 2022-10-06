@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Datas from "./Data.js";
 export const Main = () => {
   const [data, setData] = useState({
@@ -6,7 +6,7 @@ export const Main = () => {
     location: "Alberta, Canada",
     school: "the University of Utah",
     major: "Information Technology",
-    occupation: "ournalist for a local newspaper",
+    occupation: "Journalist for a local newspaper",
     religiousBackgrpund: "atheist, and has no experience with spiritual things",
     reasonForMeeting:
       "is trying to find [PossessivePronoun] purpose in life outside of track and field and school",
@@ -15,14 +15,14 @@ export const Main = () => {
   const [gender, setGender] = useState("He");
   let [count, setCount] = useState(0);
   const [location2, setLocation2] = useState(true);
-  const [school2, setSchool2] = useState(true);
-  const [occupation2, setOccupation2] = useState(true);
+  const [enteredschool, setenteredschool] = useState(true);
+  const [enteredOccupation, setenteredOccupation] = useState(true);
   const [religiousBackgrpund2, setReligiousBackgrpund2] = useState(true);
   const [reasonForMeeting2, setReasonForMeeting2] = useState(true);
 
   const handleGender = (e) => {
     console.log("gender:", e.target.value);
-    e.target.value == "male" ? setGender("He") : setGender("She");
+    e.target.value === "male" ? setGender("He") : setGender("She");
   };
 
   const handlechange = (e) => {
@@ -101,7 +101,7 @@ export const Main = () => {
           <input
             type="checkbox"
             defaultChecked={true}
-            onChange={(e) => handleCheck(e, setSchool2)}
+            onChange={(e) => handleCheck(e, setenteredschool)}
           />
           <div> School : </div>
           <input
@@ -132,7 +132,7 @@ export const Main = () => {
           <input
             type="checkbox"
             defaultChecked={true}
-            onChange={(e) => handleCheck(e, setOccupation2)}
+            onChange={(e) => handleCheck(e, setenteredOccupation)}
           />
           <div> Occupation : </div>
           <input
@@ -187,14 +187,14 @@ export const Main = () => {
             <div> Reason for meeting with missionaries: </div>
           </div>
           <textarea
-            // style={{}}
             className="text-area-overflow "
             name="reasonForMeeting"
             value={data.reasonForMeeting}
             type="text"
             onChange={handlechange}
           />
-          <button className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -202,7 +202,8 @@ export const Main = () => {
             {" "}
             Restoration{" "}
           </button>
-          <button  className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -210,7 +211,8 @@ export const Main = () => {
             {" "}
             Plan of Salvation{" "}
           </button>
-          <button  className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -218,7 +220,8 @@ export const Main = () => {
             {" "}
             Gospel of Christ{" "}
           </button>
-          <button  className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -226,7 +229,8 @@ export const Main = () => {
             {" "}
             Law of Chastity{" "}
           </button>
-          <button  className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -234,7 +238,8 @@ export const Main = () => {
             {" "}
             Word of Wisdom{" "}
           </button>
-          <button  className="mb-4"
+          <button
+            className="mb-4"
             onClick={() =>
               handleDatas("reasonForMeeting", Datas.ReasonForMeeting)
             }
@@ -247,21 +252,20 @@ export const Main = () => {
       </div>
       {/* ------------------------- result div---------------------------*/}
       <div className="result-div">
-      <h1 className="heading">
+        <h1 className="heading">
           {" "}
           <i className="text-2xl text-center">
             {" "}
             <h1>Result</h1>
           </i>
         </h1>
-
-        <div style={{padding:"20px"}} className="option-div-child">
+        <div style={{ padding: "20px" }} className="option-div-child">
           {location2
             ? `${data.name} is from ${data.location}.`
             : `You are teaching ${data.name}. `}
           {gender} is studying {data.major}{" "}
-          {school2 ? `at ${data.school}.` : null}
-          {occupation2
+          {enteredschool ? `at ${data.school}.` : null}
+          {enteredOccupation
             ? `${gender} currently works as a ${data.occupation}.`
             : null}
           {religiousBackgrpund2
