@@ -14,11 +14,11 @@ export const Main = () => {
 
   const [gender, setGender] = useState("He");
   let [count, setCount] = useState(0);
-  const [location2, setLocation2] = useState(true);
+  const [enteredlocation, setEnteredlocation] = useState(true);
   const [enteredschool, setenteredschool] = useState(true);
   const [enteredOccupation, setenteredOccupation] = useState(true);
-  const [religiousBackgrpund2, setReligiousBackgrpund2] = useState(true);
-  const [reasonForMeeting2, setReasonForMeeting2] = useState(true);
+  const [religiousback, setreligiousback] = useState(true);
+  const [reason4Meet, setreason4Meet] = useState(true);
 
   const handleGender = (e) => {
     console.log("gender:", e.target.value);
@@ -82,7 +82,7 @@ export const Main = () => {
           <input
             type="checkbox"
             defaultChecked={true}
-            onChange={(e) => handleCheck(e, setLocation2)}
+            onChange={(e) => handleCheck(e, setEnteredlocation)}
           />
           <div> Location : </div>
           <input
@@ -154,7 +154,7 @@ export const Main = () => {
             <input
               type="checkbox"
               defaultChecked={true}
-              onChange={(e) => handleCheck(e, setReligiousBackgrpund2)}
+              onChange={(e) => handleCheck(e, setreligiousback)}
             />
             <div> Religious Backgrpund : </div>
           </div>
@@ -182,7 +182,7 @@ export const Main = () => {
             <input
               type="checkbox"
               defaultChecked={true}
-              onChange={(e) => handleCheck(e, setReasonForMeeting2)}
+              onChange={(e) => handleCheck(e, setreason4Meet)}
             />
             <div> Reason for meeting with missionaries: </div>
           </div>
@@ -260,7 +260,7 @@ export const Main = () => {
           </i>
         </h1>
         <div style={{ padding: "20px" }} className="option-div-child">
-          {location2
+          {enteredlocation
             ? `${data.name} is from ${data.location}.`
             : `You are teaching ${data.name}. `}
           {gender} is studying {data.major}{" "}
@@ -268,10 +268,10 @@ export const Main = () => {
           {enteredOccupation
             ? `${gender} currently works as a ${data.occupation}.`
             : null}
-          {religiousBackgrpund2
+          {religiousback
             ? `${gender} was raised ${data.religiousBackgrpund}.`
             : null}
-          {reasonForMeeting2 ? `${gender} ${data.reasonForMeeting}.` : null}
+          {reason4Meet ? `${gender} ${data.reasonForMeeting}.` : null}
         </div>
       </div>
     </div>
