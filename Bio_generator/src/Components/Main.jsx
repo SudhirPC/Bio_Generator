@@ -19,6 +19,8 @@ export const Main = () => {
   const [enteredOccupation, setenteredOccupation] = useState(true);
   const [religiousback, setreligiousback] = useState(true);
   const [reason4Meet, setreason4Meet] = useState(true);
+  const [translate, settranslate] = useState("");
+  const [newtranslate, setnewtranslate] = useState("");
 
   const handleGender = (e) => {
     console.log("gender:", e.target.value);
@@ -47,7 +49,36 @@ export const Main = () => {
   const handleCheck = (e, setfun) => {
     e.target.checked ? setfun(true) : setfun(false);
   };
+  const handletrnaslate = () => {
+    let translatedstring = document.getElementById("demo").innerHTML;
+    // settranslate(translatedstring);
+    async function translateText() {
+      try {
+        let input = translatedstring;
+        let res = await fetch("https://libretranslate.de/translate", {
+          method: "POST",
+          body: JSON.stringify({
+            q: input,
+            source: "en",
+            target: "hi",
+            format: "text",
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
+        let data = await res.json();
+        // console.log("data",data);
+
+        setnewtranslate(data.translatedText);
+      } catch (err) {
+        console.log("err:", err);
+      }
+    }
+    translateText();
+  };
+  console.log(newtranslate);
   return (
     <div className="container">
       {/* ------------------------- Options  Div---------------------------*/}
@@ -259,7 +290,7 @@ export const Main = () => {
             <h1>Result</h1>
           </i>
         </h1>
-        <div style={{ padding: "20px" }} className="option-div-child">
+        <div id="demo" style={{ padding: "20px" }} className="option-div-child">
           {enteredlocation
             ? `${data.name} is from ${data.location}.`
             : `You are teaching ${data.name}. `}
@@ -273,6 +304,8 @@ export const Main = () => {
             : null}
           {reason4Meet ? `${gender} ${data.reasonForMeeting}.` : null}
         </div>
+        <button className="ml-36 mt-4 mb-1 "onClick={handletrnaslate}>Translate</button>
+        {newtranslate? <div style={{ padding: "20px" }} className="option-div-child"><h1>{newtranslate}</h1></div>:null}
       </div>
     </div>
   );
